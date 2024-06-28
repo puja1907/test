@@ -1,0 +1,486 @@
+###  day 6
+short==> colifier
+int ==> datatype
+
+eg.long int
+
+data type
+int   -->4byte
+char  -->1 byte
+float  -->4 byte
+double  -->8 byte
+
+unsigned ==non negative number
+
+float has 7 digit of precision remaining digits are discarded
+
+double has 14 digits of precision remaining digits are discarded.
+
+
+		#include<cstdio>
+		float width, height;-->global variables of float data-type
+		                       are visible in all code blocks	
+		int main(void)
+		{
+			//local variable a ppear in the curly brases
+				({}).
+			short int count;p
+			printf("dimensions of banner:");
+			scanf("%f%f", &width,&height);
+
+			-->scanf wait for the user put the values
+			-->& where the value address of the value
+
+			printf("Number of banners");
+			scanf("%hd",&count);
+
+			-->%hd=short int formate specifier.
+
+			double payment = count * width * height *0.80;
+			printf("Total payment = %lf\n",payment);
+			payment-->we want the value of the payment.
+
+			
+				
+		} 
+
+
+
+Run command: -> c++ variabletest.cpp -o program
+
+%.2lf --> two digits after decimal point
+
+global variable-->global variables are visible throughout the program
+
+local variable--> local variables are visible for the block of program.
+
+puts --> only display the string and it add new line by default.
+
+
+
+			#### day 7 ####
+
+Each variable can contain only one value
+
+## Array -->
+
+12 month array
+
+#include<cstdio>
+-->global array to identify the month in year
+int month[]={31,28,31,30,31,30,31,31,30,31,30,31};
+
+int main(void)
+{
+ 	int month;
+	printf("Month [1-12]:");
+	scanf("%d",&month);
+
+	int days=year[month-1];
+--> array start with 0 when user put 1 then it will be calculated as
+--> [1-1]=0 --> january
+	
+	double amount= days*(days +1)/2.0;
+
+-->31*(30+1)/2;
+
+
+short count; -->short int count
+-->int is by default
+	printf("Total amount:%.2lf",payment);
+}
+
+//control structure
+### if_else ###
+
+#include<cstdio>
+ 
+int main(void)
+{
+	float width,height;
+	short count;
+	
+	printf("dimension of banner:");
+	scanf("%f%f",&width,&height);
+	printf("number of banners:");
+	scanf("%hd",&count);
+	
+	double area=width*height;
+	if(width > height)
+	{
+	printf("total payment for landscape banne: %.2lf",count*area*0.80);
+	}
+	else
+	{
+	printf("total payment for potrait banner:%.2lf\n",count*area*0.50);
+	}	
+puts("goodbye");
+}
+
+
+
+### else_if ###
+### switch control structure ###
+## branch control/decision making ###
+
+#include<cstdio>
+
+int main(void)
+{
+ short age; -->here int is by default
+
+ printf("age:");
+ scanf("%hd",&age);
+
+ float rate;
+/*if(age==16)
+ rate=60;
+else if(age==18)
+ rate=80;
+else if(age==21);
+ rate=120;
+else if (age=50)
+ rate=250;
+else
+ rate=50;
+*/
+switch(age)     -->switch variable assigned
+{
+case 16:			-->case 1 it also be alphabate;
+	rate=60;
+	break;
+case 18:
+	rate=80;
+	break;
+case 21:
+	rate=120;
+	break;
+case 50:
+	rate=150;
+	break;
+default:
+	rate=50;
+}
+printf("Total gift amount=%.2lf",age*rate);
+
+}
+
+----------**switch only work with matching values.
+In switch range cannot be displayed.
+ switch used for equal to number,alphabet etc. condition.
+
+
+### iteration method/repeation ###
+
+!!!!count how many digits in numbers
+
+#include<cstdio>
+
+int main(void)
+{
+  
+   long num;
+   printf("Positive integer:");
+   scanf("%d", &num);
+if(num<0)--->if for negative number to take it as positive.
+num=-num;
+   long a=1, b=num,c=0;-->register take by default in C++
+
+do
+{
+a=a*10;
+c=c+1;
+
+}
+while(a<=b);
+printf("Number of digits =%ld\n",c);
+}
+
+ 
+
+  
+flow charts are driven by analyst.
+follow the standards.
+
+do while to perform an operation and then check for the condition.
+
+
+
+####################### Session 8####################
+****sum of digit***
+#include<cstdio>
+
+int main(void)
+{
+  long num;
+  printf("positive  integer:");
+  scanf("%ld",&num);
+
+  long sum=0;
+
+  while(num>0)
+{
+  sum=sum+num%10;-->   sum +=num%10; 
+  num=num/10;   -->    num /=10;
+}
+}
+      
+
+do while-->first update the data and then check the updated data
+while ---> before perform any operation and you want to check.
+
+
+***********sum the square of digit****    
+
+#include<cstdio>
+int main(void)
+{
+  long lower,upper;
+  printf("lower and upper limits:");
+  scanf("%ld%ld",&lower,&upper);
+  
+  long result =0;
+  for(long num=lower; num<=upper; num=num+1)-->++num
+ {
+   result +=num*num;
+   
+ }
+printf("computation of result=%ld\n",result);
+ 
+}
+
+**pre-increament
+p=19
+
+q=++p -->p=20 , q=20
+ 
+**post-increament
+
+m=21
+n=m++  -->n=21 ,m=22  -->avoid using this/it is slower
+
+
+
+
+########### Functions ########
+
+#include<cstdio>
+
+double BannerPrice(float w,float h,int n)--->function declaration
+{
+	float rate=n<10?0.80:0.75;-->ternary operator
+-->if n<10 then it works with 0.80 otherwise it works with 0.75
+	return n*w*h*rate;
+}
+
+arguments--> what you pass eg.age is 22, 22 is argument
+
+parameters-->(float w,float h,int n)what function want eg.age
+                    |    
+                   replace by width value 
+int main(void)
+
+{
+float width,height;
+short count;
+
+printf("Dimension of banner");
+scanf(%f%f",&width,&height);
+printf("Number of banners:");
+scanf("%hd",&count);
+
+double payment=BannerPrice(width,height,count);-->function call
+
+printf("total payment for regular banner %.2lf\n",payment);
+double bpayment =count *(width +1) *(height +1)*0.80;
+printf("total payment for bordered banner %.2lf\n",bpayment);
+}
+
+
+why do functions?
+-->to avoid repeation
+if logic change it difficult to change everywhere
+
+void means nothing/no parameter
+
+function always return 
+function is always declared in above the main
+
+
+
+
+
+
+################ Session 9 #####################
+
+
+function is identifies by its name and list of its parameter type.
+
+<cmath> declare-->pow() function 
+
+function overloading-->
+defining a function whose name matches with the name of an
+existing function but with a different  list of parameter types
+
+mangled name --> int Compute(int upper)-->_Z7Computei
+			|
+                       7letters
+
+function is not identified with its return type.
+
+
+extern--> this not been here its is somewhere in other module.
+
+
+extern "c" long GCD(long,long);
+	|
+this is not c++ code this is 'c' compatible code.
+
+'c'-->this function name is not mangled
+
+calling convention = 
+It is a machine specific standard commonly ... by the operating 
+system for implementing a procedure in a module can be called from 
+externak modules. The calling convention specific a unix type system
+for x64 machine includes following guidelines using registers involved in a
+procedure call
+
+1.The caller will pass first six integer type arguments in RDI,RCX R8,R9 registers and
+will except an integer type result in register after the procedure
+returns.
+2.The caller will preserve values in RAX,RCX,RDX,RSI,RDI,R8,R9 register
+but will except the other register to be restored to original values
+before the procedure returns
+
+
+session 9 ---> 1:07:52
+compute the square and sum 2 steps
+
+
+throw -->exit the function with an exception of int
+
+c++ -c computation.cpp
+
+
+long compute(int=1,int=2,short);
+this is not allowed afterword should have default argument
+any parameter have default argument then all afterward have default
+argument.
+
+
+long compute(int,int,short=3);
+this allowed because there is no parameter after short.
+
+exception-->something unexcepted happen
+
+handling the exception
+try-->put the function inside try block causing exception
+catch -->if exception is thrown then catch block executed.
+
+
+
+####################session 10################################
+
+
+
+p[0]-->*p same
+
+int*p=&q
+
+p[0]=53  -->  *p=53
+
+p[0]=35 
+
+
+arguments are pass by value that is copy.
+
+the values are copied in argument.
+
+
+
+double Average(double first,double second,double* deviation)
+					    |	
+		deviation contain the address of double value
+
+
+&d passed to double* deviation which contain the adderss of value.
+
+using pointer function can the value
+
+to return the value pass the pointer to data type of that value.
+
+
+ 
+
+####function pointer ####
+
+double CommonSequenceSum(int years,float (*seq)(int))
+					    |
+				sequence is pointer of function
+			which has one parameter int and return 
+				type float.
+					
+
+second parameter (seq) is of function pointer type which addresses
+code of any function with one parameter of int type and float as
+its return type, function pointer is mainly used to support
+function call-back.
+
+double amount =seq(yr); -->calling function addressed by seq
+
+to avoid the repeatation of code 
+
+double CommonSequenceSum(int years,float (*seq)(int,char))
+---> seq is pointer function has two parameter with int and char
+datatype and return type is float.
+
+
+popular style of programiming is called methodologies.
+dividing code into small parts is called modulization.
+
+
+
+
+
+#####################session 17#################################
+
+
+
+
+
+
+
+
+	 
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
